@@ -1,0 +1,44 @@
+class ItemToPurchase:
+    item_name = "none"
+    item_price = 0.00
+    item_quantity = 0
+
+
+item1 = ItemToPurchase()
+item2 = ItemToPurchase()
+
+print("Item 1")
+item1.item_name = input("Enter the item name:\n")
+while True:
+    try:
+        item1.item_price = float(input("Enter the item price (format X.XX):\n"))
+        if item1.item_price < 0:
+            print("Price cannot be negative. Please enter a valid price in the format X.XX.")
+        else:
+            item1.item_price = round(item1.item_price, 2)
+            break
+    except ValueError:
+        print("Invalid input. Please enter a valid price in the format X.XX.")
+item1.item_quantity = int(input("Enter the item quantity:\n"))
+
+print("\nItem 2")
+item2.item_name = input("Enter the item name:\n")
+while True:
+    try:
+        item2.item_price = float(input("Enter the item price (format X.XX):\n"))
+        if item2.item_price < 0:
+            print("Price cannot be negative. Please enter a valid price in the format X.XX.")
+        else:
+            item2.item_price = round(item2.item_price, 2)
+            break
+    except ValueError:
+        print("Invalid input. Please enter a valid price in the format X.XX.")
+item2.item_quantity = int(input("Enter the item quantity:\n"))
+
+print("\nTOTAL COST")
+total_cost_item1 = item1.item_price * item1.item_quantity
+total_cost_item2 = item2.item_price * item2.item_quantity
+print(f"{item1.item_name} {item1.item_quantity} @ ${item1.item_price:.2f} = ${total_cost_item1:.2f}")
+print(f"{item2.item_name} {item2.item_quantity} @ ${item2.item_price:.2f} = ${total_cost_item2:.2f}")
+total_cost = total_cost_item1 + total_cost_item2
+print(f"\nTotal: ${total_cost:.2f}")
